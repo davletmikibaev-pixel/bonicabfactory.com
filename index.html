@@ -9,6 +9,62 @@
 <meta property="og:description" content="Швейное производство полного цикла в Бишкеке. Партии от 500 единиц на артикул.">
 <meta property="og:image" content="https://bonicabfactory.com/media/photos/5409057318843915089.jpg">
 <meta property="og:url" content="https://bonicabfactory.com/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="BONICAB FACTORY">
+<link rel="canonical" href="https://bonicabfactory.com/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["Organization", "LocalBusiness"],
+  "@id": "https://bonicabfactory.com/#org",
+  "name": "BONICAB FACTORY",
+  "alternateName": "Bonicab",
+  "description": "Швейное производство полного цикла в Бишкеке. Пошив женской и мужской одежды второго слоя для брендов и селлеров: от разработки модели до серийной партии от 500 единиц на артикул.",
+  "url": "https://bonicabfactory.com/",
+  "image": "https://bonicabfactory.com/media/photos/5409057318843915089.jpg",
+  "foundingDate": "2021",
+  "telephone": "+996502764594",
+  "email": "bonicab.factory@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Бишкек",
+    "addressCountry": "KG"
+  },
+  "areaServed": ["KG", "KZ", "RU", "UZ"],
+  "knowsAbout": ["Пошив одежды оптом", "Пошив под собственную торговую марку", "Разработка лекал", "Пошив курток", "Пошив костюмов", "Пошив жакетов"],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "sales",
+    "telephone": "+996502764594",
+    "email": "bonicab.factory@gmail.com",
+    "availableLanguage": ["ru"]
+  },
+  "sameAs": [
+    "https://www.instagram.com/bonicab.factory/",
+    "https://t.me/bonicabfactory"
+  ]
+}
+</script>
+<script>
+/* Аналитика: впишите номер счётчика Яндекс.Метрики и ID потока GA4 (G-XXXXXXX). Пока поле пустое, счётчик не загружается. */
+const YM_ID = "114022506";
+const GA_ID = "";
+if (YM_ID) {
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
+  ym(+YM_ID, "init", { clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: true });
+}
+if (GA_ID) {
+  const s = document.createElement("script"); s.async = true; s.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_ID; document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || []; window.gtag = function(){ dataLayer.push(arguments); };
+  gtag("js", new Date()); gtag("config", GA_ID);
+}
+/* Цели: lead_form, whatsapp_send, copy_lead, add_to_cart, click_whatsapp, click_phone, click_email, click_telegram, click_instagram */
+function track(goal, params) {
+  try { if (YM_ID && window.ym) ym(+YM_ID, "reachGoal", goal, params); } catch (e) {}
+  try { if (GA_ID && window.gtag) gtag("event", goal, params || {}); } catch (e) {}
+}
+</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231E1C1A'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' text-anchor='middle' fill='%23C29B5E'%3EB%3C/text%3E%3C/svg%3E">
 <style>html{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -220,7 +276,7 @@ textarea.field { min-height: 96px; resize: vertical; }
 #contacts .label { color: rgba(247,247,248,.6); }
 .contacts { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 32px; align-items: start; }
 .contacts h2 { color: var(--paper); }
-.contacts .v { font: 400 1.6rem/1.2 var(--f-display); user-select: all; display: block; margin-top: 8px; overflow-wrap: anywhere; }
+.contacts .v { font: 400 1.6rem/1.2 var(--f-display); user-select: all; display: block; margin-top: 8px; overflow-wrap: anywhere; text-decoration: none; }
 .contacts p { color: rgba(247,247,248,.65); font-size: .9rem; margin-top: 6px; }
 .qr { background: #fff; padding: 10px; width: 132px; }
 .qr img { width: 112px; height: 112px; }
@@ -434,8 +490,8 @@ dialog::backdrop { background: rgba(14, 10, 20, .78); }
     <div class="wrap">
       <div class="contacts">
         <div style="display:grid;gap:14px"><span class="label">Контакты</span><h2>Отдел продаж</h2><p>Бишкек, Кыргызстан.</p></div>
-        <div><span class="label">Телефон, WhatsApp</span><span class="v">+996 502 764 594</span></div>
-        <div><span class="label">E-mail</span><span class="v">bonicab.factory@gmail.com</span></div>
+        <div><span class="label">Телефон, WhatsApp</span><a class="v" href="tel:+996502764594">+996 502 764 594</a></div>
+        <div><span class="label">E-mail</span><a class="v" href="mailto:bonicab.factory@gmail.com">bonicab.factory@gmail.com</a></div>
         <div class="socials">
           <span class="label">Мы в соцсетях</span>
           <div class="soc-links">
@@ -591,7 +647,7 @@ function renderCart() {
 
 function toggleCart(id) {
   const m = MODELS.find(x => x.id === id);
-  if (cart[id]) { delete cart[id]; toast("Убрано из заявки"); } else { cart[id] = MOQ; toast(`${m.name}: добавлено ${MOQ} ед.`); }
+  if (cart[id]) { delete cart[id]; toast("Убрано из заявки"); } else { cart[id] = MOQ; toast(`${m.name}: добавлено ${MOQ} ед.`); track("add_to_cart", { model: `№ ${m.no}` }); }
   saveCart(); renderGrid(); renderCart();
 }
 
@@ -685,9 +741,20 @@ $("#form").addEventListener("submit", e => {
   $("#doneText").textContent = text;
   $("#waBtn").href = "https://wa.me/996502764594?text=" + encodeURIComponent(text);
   e.target.hidden = true; $("#done").hidden = false;
+  track("lead_form", { models: ids.length, units: ids.reduce((s, id) => s + cart[id], 0) });
+});
+$("#waBtn").addEventListener("click", () => track("whatsapp_send"));
+document.addEventListener("click", e => {
+  const a = e.target.closest("a[href]");
+  if (!a || a.id === "waBtn") return;
+  const h = a.href;
+  const goal = h.includes("wa.me") ? "click_whatsapp" : h.startsWith("tel:") ? "click_phone" : h.startsWith("mailto:") ? "click_email"
+    : h.includes("t.me/") ? "click_telegram" : h.includes("instagram.com") ? "click_instagram" : null;
+  if (goal) track(goal);
 });
 $("#backBtn").addEventListener("click", () => { $("#done").hidden = true; $("#form").hidden = false; });
 $("#copyBtn").addEventListener("click", () => {
+  track("copy_lead");
   const fallback = () => { const r = document.createRange(); r.selectNodeContents($("#doneText")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); toast("Текст выделен — нажмите Ctrl+C"); };
   try { navigator.clipboard.writeText($("#doneText").textContent).then(() => toast("Скопировано"), fallback); } catch (e) { fallback(); }
 });
