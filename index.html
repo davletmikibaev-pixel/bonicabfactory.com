@@ -191,6 +191,17 @@ section { padding-block: 96px; }
 .pillar p { color: var(--muted); font-size: .9rem; }
 @media (max-width: 860px) { .about { grid-template-columns: 1fr; gap: 28px; } .pillars { grid-template-columns: 1fr; } .pillar + .pillar { padding-left: 0; } }
 
+/* Factory videos */
+#factory { border-top: 1px solid var(--line); }
+#factory h2 { max-width: 22em; }
+.fvids { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px 40px; }
+.fvid { margin: 0; display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 16px 24px; align-items: end; }
+.fvid video { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; background: #000; display: block; }
+.fvid figcaption { display: grid; gap: 10px; align-content: end; }
+.fvid p { color: var(--muted); font-size: .9rem; }
+@media (max-width: 1100px) { .fvids { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .fvid { grid-template-columns: 1fr; } .fvid video { max-height: 78vh; } }
+
 /* Catalog */
 .filters { display: flex; flex-wrap: wrap; gap: 6px 26px; margin-bottom: 32px; }
 .chip {
@@ -386,6 +397,7 @@ section { scroll-margin-top: 64px; }
     <a class="logo" href="#top" aria-label="BONICAB FACTORY — на главную"><b>BONICAB</b><span aria-hidden="true"><i>F</i><i>A</i><i>C</i><i>T</i><i>O</i><i>R</i><i>Y</i></span></a>
     <nav class="menu" id="menu" aria-label="Разделы">
       <a href="#about">О фабрике</a>
+      <a href="#factory">Производство</a>
       <a href="#catalog">Модели</a>
       <a href="#lookbook">Лукбук и видео</a>
       <a href="#process">Как работаем</a>
@@ -442,6 +454,34 @@ section { scroll-margin-top: 64px; }
         <div class="pillar"><span class="label">Команда</span><h3>Конструкторы, технологи, лаборанты</h3><p>Специалисты с многолетним опытом разрабатывают лекала, отшивают и дорабатывают образцы, контролируют качество на каждом этапе.</p></div>
         <div class="pillar"><span class="label">Материалы</span><h3>Проверенные поставщики</h3><p>Ткани и фурнитура соответствуют требованиям среднего и премиального сегментов.</p></div>
         <div class="pillar"><span class="label">Система</span><h3>Поточное производство</h3><p>Стабильное качество от первой до последней единицы партии и соблюдение сроков на больших объёмах.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="factory">
+    <div class="wrap">
+      <div class="sec-head"><div><span class="label v">Производство</span><h2>BONICAB FACTORY изнутри: открытое производство для наших партнёров</h2></div></div>
+      <div class="fvids">
+        <figure class="fvid">
+          <video controls playsinline preload="none" poster="media/video/factory-tour.jpg" aria-label="Видео: знакомство с фабрикой">
+            <source src="media/video/factory-tour.mp4" type="video/mp4">
+          </video>
+          <figcaption>
+            <span class="label">Видео · 0:39</span>
+            <h3>Знакомство с фабрикой</h3>
+            <p>Экскурсия по производству: оборудование, команда, организация рабочих процессов и возможности нашей фабрики. Как мы создаём одежду для наших партнёров.</p>
+          </figcaption>
+        </figure>
+        <figure class="fvid">
+          <video controls playsinline preload="none" poster="media/video/factory-process.jpg" aria-label="Видео: этапы изготовления и контроль качества">
+            <source src="media/video/factory-process.mp4" type="video/mp4">
+          </video>
+          <figcaption>
+            <span class="label">Видео · 0:23</span>
+            <h3>Этапы изготовления и контроль качества</h3>
+            <p>Показываем этапы изготовления изделий, контроль качества и подход к выполнению заказов.</p>
+          </figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -862,6 +902,9 @@ if ("IntersectionObserver" in window) {
   });
   ["#order", "#contacts"].forEach(s => io.observe($(s)));
 }
+
+document.querySelectorAll(".fvid video").forEach(v =>
+  v.addEventListener("play", () => track("factory_video", { video: v.querySelector("source").src.split("/").pop() }), { once: true }));
 
 renderChips(); renderGrid(); renderMedia(); renderCart();
 </script>
