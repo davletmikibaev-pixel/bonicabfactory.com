@@ -365,6 +365,15 @@ dialog::backdrop { background: rgba(14, 10, 20, .78); }
 
 .toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--ink); color: var(--paper); padding: 12px 18px; font-size: .9rem; z-index: 50; max-width: calc(100% - 32px); }
 
+/* Согласие и cookie */
+.agree { display: flex !important; grid-template-columns: none; gap: 10px; align-items: flex-start; text-transform: none !important; letter-spacing: 0 !important; font-size: .8rem !important; color: var(--muted); margin: 4px 0 16px !important; cursor: pointer; }
+.agree input { flex: none; width: 20px; height: 20px; margin: 1px 0 0; accent-color: var(--ink); }
+.agree a { color: var(--ink); }
+footer a.legal { color: inherit; text-underline-offset: .18em; }
+.cookie { position: fixed; left: 16px; bottom: 16px; z-index: 40; max-width: 420px; display: grid; gap: 12px; padding: 18px; background: var(--paper); color: var(--ink); border: 1px solid var(--ink); font-size: .8rem; }
+.cookie a { color: inherit; }
+.cookie .btn { justify-self: start; }
+
 /* Mobile: меню, крупные цели нажатия, минимальный кегль 12px, нижняя панель */
 section { scroll-margin-top: 64px; }
 .menu-btn, .mbar { display: none; }
@@ -397,6 +406,8 @@ section { scroll-margin-top: 64px; }
   .mbar.away { transform: translateY(110%); }
   body { padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px)); }
   .toast { bottom: calc(80px + env(safe-area-inset-bottom, 0px)); }
+  .cookie { left: 8px; right: 8px; bottom: calc(72px + env(safe-area-inset-bottom, 0px)); max-width: none; }
+  .agree { font-size: .8rem !important; }
 }
 </style>
 </head>
@@ -590,6 +601,7 @@ section { scroll-margin-top: 64px; }
             <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
 
             <p class="note warn" id="formErr" hidden></p>
+            <label class="agree"><input type="checkbox" name="agree" id="f-agree"><span>Я даю <a href="consent.html" target="_blank">согласие на обработку персональных данных</a> и ознакомлен(а) с <a href="privacy.html" target="_blank">политикой конфиденциальности</a></span></label>
             <button class="btn btn-primary" type="submit" style="width:100%">Сформировать заявку</button>
           </form>
           <div class="done" id="done" hidden>
@@ -635,7 +647,7 @@ section { scroll-margin-top: 64px; }
 
 <footer>
   <div class="wrap">
-    <span>© 2026 BONICAB FACTORY · швейная фабрика</span>
+    <span>© 2026 BONICAB FACTORY · швейная фабрика · <a class="legal" href="privacy.html">Политика конфиденциальности</a> · <a class="legal" href="consent.html">Согласие на обработку данных</a></span>
     <span class="foot-soc"><a href="https://www.instagram.com/bonicab.factory/" target="_blank" rel="noopener">Instagram</a><a href="https://t.me/bonicabfactory" target="_blank" rel="noopener">Telegram</a><span>Бишкек</span></span>
   </div>
 </footer>
@@ -661,6 +673,11 @@ section { scroll-margin-top: 64px; }
   <a class="btn btn-ghost" href="https://wa.me/996502764594" target="_blank" rel="noopener">WhatsApp</a>
   <a class="btn btn-ghost" href="https://t.me/bonicabfactory" target="_blank" rel="noopener">Telegram</a>
   <a class="btn btn-primary" href="#order">Заявка (<span id="cartCount2">0</span>)</a>
+</div>
+
+<div class="cookie" id="cookie" hidden>
+  <p>Мы используем cookie и сервисы аналитики (Яндекс Метрика, Google Analytics), чтобы сайт работал лучше. Подробнее — в <a href="privacy.html">политике конфиденциальности</a>.</p>
+  <button class="btn btn-primary" type="button" id="cookieOk">Понятно</button>
 </div>
 
 <div class="toast" id="toast" hidden></div>
@@ -856,6 +873,7 @@ $("#form").addEventListener("submit", e => {
   e.preventDefault();
   const f = new FormData(e.target), err = $("#formErr");
   if (!f.get("name").trim() || !f.get("phone").trim()) { err.textContent = "Укажите имя и телефон, чтобы отдел продаж мог с вами связаться."; err.hidden = false; return; }
+  if (!f.get("agree")) { err.textContent = "Чтобы отправить заявку, отметьте согласие на обработку персональных данных."; err.hidden = false; $("#f-agree").focus(); return; }
   err.hidden = true;
   const ids = Object.keys(cart).filter(id => MODELS.some(m => m.id === id));
   const lines = ids.map(id => { const m = MODELS.find(x => x.id === id); return `• № ${m.no} ${m.name} — ${cart[id]} ед.`; });
@@ -923,6 +941,10 @@ if ("IntersectionObserver" in window) {
 
 document.querySelectorAll(".fvid video").forEach(v =>
   v.addEventListener("play", () => track("factory_video", { video: v.querySelector("source").src.split("/").pop() }), { once: true }));
+
+// Уведомление о cookie: показываем один раз, пока посетитель не нажмёт «Понятно»
+try { if (!localStorage.getItem("bonicab-cookie-ok")) $("#cookie").hidden = false; } catch (e) { $("#cookie").hidden = false; }
+$("#cookieOk").addEventListener("click", () => { $("#cookie").hidden = true; try { localStorage.setItem("bonicab-cookie-ok", "1"); } catch (e) {} });
 
 renderChips(); renderGrid(); renderMedia(); renderCart();
 </script>
