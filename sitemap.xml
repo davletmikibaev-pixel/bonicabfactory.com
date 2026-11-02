@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://bonicabfactory.com/</loc>
-    <lastmod>2026-11-02</lastmod>
-    <image:image><image:loc>https://bonicabfactory.com/media/photos/5409057318843915089.jpg</image:loc></image:image>
+    <lastmod>2026-11-03</lastmod>
+    <image:image><image:loc>https://bonicabfactory.com/media/photos/og-1200x630.jpg</image:loc></image:image>
     <image:image><image:loc>https://bonicabfactory.com/media/photos/aa_5720.jpg</image:loc></image:image>
     <image:image><image:loc>https://bonicabfactory.com/media/photos/5409057318843915080.jpg</image:loc></image:image>
     <image:image><image:loc>https://bonicabfactory.com/media/photos/5409057318843915136.jpg</image:loc></image:image>
+    <video:video>
+      <video:thumbnail_loc>https://bonicabfactory.com/media/video/factory-tour.jpg</video:thumbnail_loc>
+      <video:title>Знакомство с фабрикой BONICAB FACTORY</video:title>
+      <video:description>Экскурсия по производству: оборудование, команда, организация рабочих процессов и возможности нашей фабрики. Как мы создаём одежду для наших партнёров.</video:description>
+      <video:content_loc>https://bonicabfactory.com/media/video/factory-tour.mp4</video:content_loc>
+      <video:duration>39</video:duration>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://bonicabfactory.com/media/video/factory-process.jpg</video:thumbnail_loc>
+      <video:title>Этапы изготовления и контроль качества — BONICAB FACTORY</video:title>
+      <video:description>Показываем этапы изготовления изделий, контроль качества и подход к выполнению заказов.</video:description>
+      <video:content_loc>https://bonicabfactory.com/media/video/factory-process.mp4</video:content_loc>
+      <video:duration>23</video:duration>
+    </video:video>
   </url>
 </urlset>
