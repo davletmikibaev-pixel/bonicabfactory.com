@@ -135,9 +135,10 @@ img, video { display: block; }
 /* Header */
 header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--paper); }
 .top .wrap { display: flex; align-items: center; gap: 40px; padding-block: 18px; }
-.logo { text-decoration: none; display: grid; justify-items: start; line-height: 1; color: var(--ink); }
-.logo b { font: 500 2.1rem/.9 var(--f-logo); letter-spacing: .04em; }
-.logo span { font: 400 .52rem/1 var(--f-body); letter-spacing: .62em; margin-top: 6px; }
+.logo { text-decoration: none; display: inline-grid; line-height: 1; color: var(--ink); }
+.logo b { font: 500 2.1rem/.9 var(--f-logo); letter-spacing: .04em; margin-right: -.04em; }
+.logo span { display: flex; justify-content: space-between; font: 400 .52rem/1 var(--f-body); margin-top: 6px; padding-inline: 1px; }
+.logo span i { font-style: normal; }
 nav.menu { display: flex; gap: 28px; margin-left: auto; font: 400 .7rem/1 var(--f-body); text-transform: uppercase; letter-spacing: .1em; }
 nav.menu a { text-decoration: none; color: var(--ink); padding-block: 4px; border-bottom: 1px solid transparent; }
 nav.menu a:hover { border-bottom-color: var(--ink); }
@@ -337,7 +338,7 @@ dialog::backdrop { background: rgba(14, 10, 20, .78); }
 
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="#top" aria-label="BONICAB FACTORY — на главную"><b>BONICAB</b><span>FACTORY</span></a>
+    <a class="logo" href="#top" aria-label="BONICAB FACTORY — на главную"><b>BONICAB</b><span aria-hidden="true"><i>F</i><i>A</i><i>C</i><i>T</i><i>O</i><i>R</i><i>Y</i></span></a>
     <nav class="menu" aria-label="Разделы">
       <a href="#about">О фабрике</a>
       <a href="#catalog">Модели</a>
