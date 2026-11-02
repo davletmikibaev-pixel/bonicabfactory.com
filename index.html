@@ -253,6 +253,11 @@ section { padding-block: 96px; }
 @media (max-width: 900px) { .strip { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .reels-head { margin: 72px 0 28px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px 32px; }
 .reels { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 4px; }
+/* Сначала показываем 2 ряда (на телефоне 3 ряда по 2), остальное — по кнопке «Показать ещё» */
+.reels.collapsed .reel:nth-child(n+13) { display: none; }
+@media (max-width: 640px) { .reels.collapsed .reel:nth-child(n+7) { display: none; } }
+.more-wrap { display: flex; justify-content: center; margin-top: 28px; }
+.more-wrap[hidden] { display: none; }
 @media (max-width: 1000px) { .reels { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 @media (max-width: 640px) { .reels { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .reel { position: relative; aspect-ratio: 9 / 16; max-width: 100%; background: var(--ink); overflow: hidden; border: 0; padding: 0; cursor: pointer; }
@@ -534,7 +539,8 @@ section { scroll-margin-top: 64px; }
         <div style="display:grid;gap:10px"><span class="label v">Видео</span><h2>Как сидят вещи в движении</h2></div>
         <p class="note" style="margin:0">Нажмите на видео, чтобы посмотреть со звуком</p>
       </div>
-      <div class="reels" id="reels"></div>
+      <div class="reels collapsed" id="reels"></div>
+      <div class="more-wrap"><button class="btn btn-ghost" type="button" id="reelsMore" aria-controls="reels">Показать ещё</button></div>
     </div>
   </section>
 
@@ -767,7 +773,21 @@ function renderGrid() {
 function renderMedia() {
   $("#strip").innerHTML = LOOKBOOK.map((src, i) => `<button type="button" data-view="${src}" aria-label="Открыть фото ${i + 1}"><img src="${src}" alt="Лукбук BONICAB" loading="lazy"></button>`).join("");
   $("#reels").innerHTML = VIDEOS.map((v, i) => `<button class="reel" type="button" data-video="${v}" aria-label="Смотреть видео ${i + 1}"><img src="${v}.jpg" alt="Видео лукбука BONICAB ${i + 1}: посадка одежды в движении" loading="lazy"><span class="play">${String(i + 1).padStart(2, "0")}</span></button>`).join("");
+  updateReelsMore();
 }
+// Подпись кнопки «Показать ещё (N)»: N зависит от ширины экрана, поэтому считаем по фактически скрытым роликам
+function updateReelsMore() {
+  const hidden = [...document.querySelectorAll("#reels .reel")].filter(r => !r.offsetParent).length;
+  $(".more-wrap").hidden = !$("#reels").classList.contains("collapsed") || hidden === 0;
+  $("#reelsMore").textContent = `Показать ещё (${hidden})`;
+}
+$("#reelsMore").addEventListener("click", () => {
+  const first = [...document.querySelectorAll("#reels .reel")].find(r => !r.offsetParent);
+  $("#reels").classList.remove("collapsed");
+  updateReelsMore();
+  if (first) first.focus({ preventScroll: true });
+});
+addEventListener("resize", updateReelsMore);
 
 function renderCart() {
   const ids = Object.keys(cart).filter(id => MODELS.some(m => m.id === id));
