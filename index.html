@@ -332,6 +332,39 @@ dialog::backdrop { background: rgba(14, 10, 20, .78); }
 #viewer img, #viewer video { max-height: calc(100vh - 64px); max-width: 100%; width: auto; margin: 0 auto; }
 
 .toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--ink); color: var(--paper); padding: 12px 18px; font-size: .9rem; z-index: 50; max-width: calc(100% - 32px); }
+
+/* Mobile: меню, крупные цели нажатия, минимальный кегль 12px, нижняя панель */
+section { scroll-margin-top: 64px; }
+.menu-btn, .mbar { display: none; }
+@media (min-width: 901px) { nav.menu .m-only { display: none; } }
+@media (max-width: 900px) {
+  .top .wrap { flex-wrap: wrap; gap: 0 20px; padding-block: 10px; }
+  .cart-btn.btn { min-height: 44px; display: inline-flex; align-items: center; }
+  .menu-btn { display: inline-flex; align-items: center; min-height: 44px; padding: 0; background: none; border: 0; color: var(--ink); cursor: pointer; font: 400 .75rem/1 var(--f-body); text-transform: uppercase; letter-spacing: .1em; }
+  .menu-btn[aria-expanded="true"]::after { content: "\00a0×"; }
+  nav.menu { flex-basis: 100%; order: 3; flex-direction: column; gap: 0; margin: 8px 0 0; padding-bottom: 8px; border-top: 1px solid var(--line); font-size: .8rem; }
+  .top.open nav.menu { display: flex; }
+  nav.menu a { min-height: 48px; display: flex; align-items: center; border-bottom: 1px solid var(--line); }
+
+  .label, .facts dt, .ribbon .wrap, .chip, .chip .n, .num, .looks, .step::before, .reel .play, .inreq,
+  .cart-count, .btn, .card .add, .card h3, .card .desc, form label { font-size: .75rem !important; }
+  .chip { min-height: 44px; }
+  .filters { gap: 0 22px; }
+  .dots { gap: 10px; padding: 6px 10px; }
+  .dot { width: 28px; height: 28px; }
+  .btn, .field, .card .add { min-height: 44px; }
+  .rm { min-width: 44px; min-height: 44px; }
+  .foot-soc a { display: inline-flex; align-items: center; min-height: 44px; }
+  .contacts .v { padding-block: 8px; }
+
+  .mbar { display: grid; grid-template-columns: 1fr 1.4fr; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
+    padding: 8px max(16px, env(safe-area-inset-left, 0px)) calc(8px + env(safe-area-inset-bottom, 0px)); background: var(--paper); border-top: 1px solid var(--line);
+    transition: transform .25s; }
+  .mbar .btn { min-height: 48px; padding-inline: 1em; }
+  .mbar.away { transform: translateY(110%); }
+  body { padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px)); }
+  .toast { bottom: calc(80px + env(safe-area-inset-bottom, 0px)); }
+}
 </style>
 </head>
 <body>
@@ -339,14 +372,16 @@ dialog::backdrop { background: rgba(14, 10, 20, .78); }
 <header class="top">
   <div class="wrap">
     <a class="logo" href="#top" aria-label="BONICAB FACTORY — на главную"><b>BONICAB</b><span aria-hidden="true"><i>F</i><i>A</i><i>C</i><i>T</i><i>O</i><i>R</i><i>Y</i></span></a>
-    <nav class="menu" aria-label="Разделы">
+    <nav class="menu" id="menu" aria-label="Разделы">
       <a href="#about">О фабрике</a>
       <a href="#catalog">Модели</a>
       <a href="#lookbook">Лукбук и видео</a>
       <a href="#process">Как работаем</a>
+      <a class="m-only" href="#order">Заявка</a>
       <a href="#contacts">Контакты</a>
     </nav>
     <a class="btn btn-ghost cart-btn" href="#order">Заявка <span class="cart-count" id="cartCount">0</span></a>
+    <button class="menu-btn" type="button" id="menuBtn" aria-expanded="false" aria-controls="menu">Меню</button>
   </div>
 </header>
 
@@ -542,6 +577,11 @@ dialog::backdrop { background: rgba(14, 10, 20, .78); }
   </div>
 </dialog>
 
+<div class="mbar" id="mbar">
+  <a class="btn btn-ghost" href="https://wa.me/996502764594" target="_blank" rel="noopener">WhatsApp</a>
+  <a class="btn btn-primary" href="#order">Заявка (<span id="cartCount2">0</span>)</a>
+</div>
+
 <div class="toast" id="toast" hidden></div>
 
 <script>
@@ -633,7 +673,7 @@ function renderMedia() {
 
 function renderCart() {
   const ids = Object.keys(cart).filter(id => MODELS.some(m => m.id === id));
-  $("#cartCount").textContent = ids.length;
+  $("#cartCount").textContent = $("#cartCount2").textContent = ids.length;
   if (!ids.length) {
     $("#lines").innerHTML = `<p class="note">Пока пусто. Добавьте модели из <a href="#catalog">каталога</a> или опишите свою модель в комментарии.</p>`;
     $("#sum").textContent = "—"; $("#moqNote").textContent = ""; return;
@@ -766,6 +806,23 @@ $("#copyBtn").addEventListener("click", () => {
   const fallback = () => { const r = document.createRange(); r.selectNodeContents($("#doneText")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); toast("Текст выделен — нажмите Ctrl+C"); };
   try { navigator.clipboard.writeText($("#doneText").textContent).then(() => toast("Скопировано"), fallback); } catch (e) { fallback(); }
 });
+
+$("#menuBtn").addEventListener("click", () => {
+  const open = $("header.top").classList.toggle("open");
+  $("#menuBtn").setAttribute("aria-expanded", open);
+});
+$("#menu").addEventListener("click", e => {
+  if (e.target.closest("a")) { $("header.top").classList.remove("open"); $("#menuBtn").setAttribute("aria-expanded", "false"); }
+});
+// Нижняя панель прячется, когда на экране форма заявки или контакты — там уже есть свои кнопки
+if ("IntersectionObserver" in window) {
+  const seen = new Set();
+  const io = new IntersectionObserver(es => {
+    es.forEach(x => x.isIntersecting ? seen.add(x.target) : seen.delete(x.target));
+    $("#mbar").classList.toggle("away", seen.size > 0);
+  });
+  ["#order", "#contacts"].forEach(s => io.observe($(s)));
+}
 
 renderChips(); renderGrid(); renderMedia(); renderCart();
 </script>
