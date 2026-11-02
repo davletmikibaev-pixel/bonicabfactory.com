@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>BONICAB FACTORY — швейная фабрика в Бишкеке</title>
-<meta name="description" content="BONICAB FACTORY — швейное производство полного цикла в Бишкеке. Пошив женской и мужской одежды второго слоя для брендов и селлеров, партии от 500 единиц на артикул.">
+<meta name="description" content="BONICAB FACTORY — швейное производство полного цикла в Бишкеке. Пошив женской и мужской одежды второго слоя для брендов и селлеров под ключ: партии от 500 единиц на артикул, до 30 000 изделий в месяц.">
 <meta property="og:title" content="BONICAB FACTORY — швейная фабрика">
 <meta property="og:description" content="Швейное производство полного цикла в Бишкеке. Партии от 500 единиц на артикул.">
 <meta property="og:image" content="https://bonicabfactory.com/media/photos/5409057318843915089.jpg">
@@ -24,6 +24,7 @@
   "url": "https://bonicabfactory.com/",
   "image": "https://bonicabfactory.com/media/photos/5409057318843915089.jpg",
   "foundingDate": "2021",
+  "numberOfEmployees": { "@type": "QuantitativeValue", "minValue": 65 },
   "telephone": "+996502764594",
   "email": "bonicab.factory@gmail.com",
   "address": {
@@ -50,6 +51,8 @@
 /* Аналитика: впишите номер счётчика Яндекс.Метрики и ID потока GA4 (G-XXXXXXX). Пока поле пустое, счётчик не загружается. */
 const YM_ID = "114022506";
 const GA_ID = "G-5Q25K6FNXN";
+/* Приём заявок в Telegram: пусто — выключено. Включается после установки сервиса на сервер. */
+const LEAD_URL = "";
 if (YM_ID) {
   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
   ym(+YM_ID, "init", { clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: true });
@@ -248,6 +251,15 @@ section { padding-block: 96px; }
 .step p { color: var(--muted); font-size: .88rem; }
 @media (max-width: 900px) { .steps { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 520px) { .steps { grid-template-columns: 1fr; } }
+.turnkey { display: grid; grid-template-columns: 1fr 1.3fr; gap: 32px 64px; margin-top: 72px; padding: 40px; background: var(--ink); color: var(--paper); }
+.turnkey .label.v { color: var(--paper); opacity: .7; }
+.tk-head { display: grid; gap: 14px; align-content: start; }
+.tk-title { font-size: clamp(1.1rem, 1.8vw, 1.5rem); font-weight: 300; }
+.tk-head p { color: var(--paper); opacity: .7; font-size: .9rem; }
+.tk-list { list-style: none; margin: 0; padding: 0; counter-reset: tk; display: grid; align-content: start; }
+.tk-list li { counter-increment: tk; display: flex; gap: 18px; align-items: baseline; padding-block: 14px; border-bottom: 1px solid rgba(255,255,255,.18); font: 300 1rem/1.3 var(--f-display); text-transform: uppercase; letter-spacing: .04em; }
+.tk-list li::before { content: counter(tk, decimal-leading-zero); font-size: .75rem; opacity: .6; }
+@media (max-width: 860px) { .turnkey { grid-template-columns: 1fr; padding: 28px 20px; margin-top: 56px; } }
 
 /* Order */
 #order { background: var(--paper); border-top: 1px solid var(--line); }
@@ -405,8 +417,8 @@ section { scroll-margin-top: 64px; }
       <dl class="facts">
         <div><dt>Работаем</dt><dd>с 2021</dd></div>
         <div><dt>Партия</dt><dd>от 500</dd></div>
-        <div><dt>Направления</dt><dd>3</dd></div>
-        <div><dt>Цикл</dt><dd>полный</dd></div>
+        <div><dt>Изделий в месяц</dt><dd>до 30 000</dd></div>
+        <div><dt>Сотрудников</dt><dd>65+</dd></div>
       </dl>
     </div>
   </section>
@@ -470,9 +482,23 @@ section { scroll-margin-top: 64px; }
       <div class="sec-head"><div><span class="label v">Как работаем</span><h2>От модели до серийной партии</h2></div></div>
       <div class="steps">
         <div class="step"><h3>Заявка</h3><p>Выбираете модели или присылаете свою идею, эскиз, образец. Обсуждаем тираж, ткани и цвета.</p></div>
-        <div class="step"><h3>Лекала и образец</h3><p>Конструкторы строят лекала, технологи отшивают образец и дорабатывают посадку до согласования.</p></div>
-        <div class="step"><h3>Серийная партия</h3><p>Запускаем поток от 500 единиц на артикул. Качество проверяется на каждом этапе.</p></div>
-        <div class="step"><h3>Отгрузка</h3><p>Упаковываем партию по вашим требованиям и передаём в доставку.</p></div>
+        <div class="step"><h3>Лекала и образец · 2–3 дня</h3><p>Конструкторы строят лекала, технологи отшивают образец и дорабатывают посадку до согласования. Срок зависит от изделия.</p></div>
+        <div class="step"><h3>Серийная партия</h3><p>Запускаем поток от 500 единиц на артикул, мощность — до 30 000 изделий в месяц. Качество проверяется на каждом этапе.</p></div>
+        <div class="step"><h3>Упаковка, маркировка, отправка</h3><p>Упаковываем и маркируем партию по вашим требованиям и отправляем товар.</p></div>
+      </div>
+      <div class="turnkey">
+        <div class="tk-head">
+          <span class="label v">Под ключ</span>
+          <h3 class="tk-title">Работаем полностью в белую, с полным пакетом документов</h3>
+          <p>Берём на себя весь путь товара: вы получаете готовую партию, которую можно сразу продавать.</p>
+        </div>
+        <ol class="tk-list">
+          <li>Разработка модели</li>
+          <li>Пошив</li>
+          <li>Упаковка</li>
+          <li>Маркировка</li>
+          <li>Отправка товара</li>
+        </ol>
       </div>
     </div>
   </section>
@@ -511,6 +537,8 @@ section { scroll-margin-top: 64px; }
               </select>
             </label>
             <label for="f-msg">Комментарий<textarea class="field" id="f-msg" name="msg" placeholder="Ткань, цвета, размерная раскладка, сроки, бирки и упаковка"></textarea></label>
+            <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+
             <p class="note warn" id="formErr" hidden></p>
             <button class="btn btn-primary" type="submit" style="width:100%">Сформировать заявку</button>
           </form>
@@ -789,7 +817,18 @@ $("#form").addEventListener("submit", e => {
   $("#doneText").textContent = text;
   $("#waBtn").href = "https://wa.me/996502764594?text=" + encodeURIComponent(text);
   e.target.hidden = true; $("#done").hidden = false;
-  track("lead_form", { models: ids.length, units: ids.reduce((s, id) => s + cart[id], 0) });
+  const units = ids.reduce((s, id) => s + cart[id], 0);
+  track("lead_form", { models: ids.length, units });
+  // Копия заявки в Telegram отдела продаж (сервис на bonicab.com) — даже если клиент не нажмёт «Отправить в WhatsApp»
+  if (LEAD_URL) {
+    fetch(LEAD_URL, {
+      method: "POST", keepalive: true, headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: f.get("name"), company: f.get("company"), phone: f.get("phone"), email: f.get("email"),
+        type: f.get("type"), msg: f.get("msg"), website: f.get("website"), models: lines.map(l => l.slice(2)), units,
+      }),
+    }).catch(() => {});
+  }
 });
 $("#waBtn").addEventListener("click", () => track("whatsapp_send"));
 document.addEventListener("click", e => {
