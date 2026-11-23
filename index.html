@@ -56,8 +56,8 @@
 /* Аналитика: впишите номер счётчика Яндекс.Метрики и ID потока GA4 (G-XXXXXXX). Пока поле пустое, счётчик не загружается. */
 const YM_ID = "114022506";
 const GA_ID = "G-5Q25K6FNXN";
-/* Приём заявок в Telegram: сервис bonicab-leads на VPS (bonicab_site/leads). Пусто — выключено. */
-const LEAD_URL = "https://bonicab.com/api/lead";
+/* Приём заявок: bonicab.com — копия в Telegram (сервис bonicab-leads на VPS), Marketing OS — CRM «Заявки». Пустой список — выключено. */
+const LEAD_URLS = ["https://bonicab.com/api/lead", "https://188-137-225-181.sslip.io/api/public/lead"];
 if (YM_ID) {
   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
   ym(+YM_ID, "init", { clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: true });
@@ -910,16 +910,14 @@ $("#form").addEventListener("submit", e => {
   e.target.hidden = true; $("#done").hidden = false;
   const units = ids.reduce((s, id) => s + cart[id], 0);
   track("lead_form", { models: ids.length, units });
-  // Копия заявки в Telegram отдела продаж (сервис на bonicab.com) — даже если клиент не нажмёт «Отправить в WhatsApp»
-  if (LEAD_URL) {
-    fetch(LEAD_URL, {
-      method: "POST", keepalive: true, headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: f.get("name"), company: f.get("company"), phone: f.get("phone"), email: f.get("email"),
-        type: f.get("type"), msg: f.get("msg"), website: f.get("website"), models: lines.map(l => l.slice(2)), units,
-      }),
-    }).catch(() => {});
-  }
+  // Копия заявки в Telegram отдела продаж и в CRM Marketing OS — даже если клиент не нажмёт «Отправить в WhatsApp»
+  const leadBody = JSON.stringify({
+    name: f.get("name"), company: f.get("company"), phone: f.get("phone"), email: f.get("email"),
+    type: f.get("type"), msg: f.get("msg"), website: f.get("website"), models: lines.map(l => l.slice(2)), units,
+  });
+  LEAD_URLS.forEach((url) => {
+    fetch(url, { method: "POST", keepalive: true, headers: { "Content-Type": "application/json" }, body: leadBody }).catch(() => {});
+  });
 });
 $("#waBtn").addEventListener("click", () => track("whatsapp_send"));
 // Telegram не умеет подставлять текст по ссылке на аккаунт — копируем заявку, клиенту остаётся вставить её в чат
