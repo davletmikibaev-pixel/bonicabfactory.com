@@ -1,0 +1,57 @@
+# Редактор сайта: https://app.pagescms.org — вход через GitHub или по приглашению на почту.
+# Сотрудник меняет товары (описание, цена, цвета, фото) в обычных полях, сайт обновляется через 1–2 минуты.
+media:
+  input: media/photos
+  output: media/photos
+
+content:
+  - name: models
+    label: Товары каталога
+    type: file
+    path: data/models.json
+    format: json
+    fields:
+      - name: models
+        label: Товары
+        type: object
+        list: true
+        fields:
+          - name: name
+            label: Название
+            type: string
+            required: true
+          - name: category
+            label: Категория
+            type: select
+            options:
+              values:
+                - value: suit
+                  label: Жакеты и костюмы
+                - value: jacket
+                  label: Куртки
+                - value: men
+                  label: Мужские костюмы
+          - name: description
+            label: Описание
+            type: text
+          - name: price
+            label: "Цена (например: от 1 500 сом за шт.). Пусто — «по запросу»"
+            type: string
+          - name: colors
+            label: Цвета
+            type: object
+            list: true
+            fields:
+              - name: color
+                label: Цвет
+                type: string
+              - name: hex
+                label: "Цвет кружка на фото (код, например #1C1C1F)"
+                type: string
+              - name: photos
+                label: Фото (первое — обложка)
+                type: image
+                list: true
+              - name: video
+                label: Видео (не менять)
+                type: string

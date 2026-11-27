@@ -1,0 +1,485 @@
+{
+  "models": [
+    {
+      "name": "Костюм с кантом: олимпийка и широкие брюки",
+      "category": "suit",
+      "description": "Олимпийка на молнии с воротником-стойкой и широкие брюки на завязках. Контрастный белый кант по рельефам.",
+      "price": "",
+      "colors": [
+        {
+          "color": "чёрный",
+          "hex": "#1C1C1F",
+          "photos": [
+            "media/photos/dm_4464.jpg",
+            "media/photos/dm_4465.jpg",
+            "media/photos/dm_4466.jpg",
+            "media/photos/dm_4467.jpg",
+            "media/photos/dm_4468.jpg",
+            "media/photos/dm_4469.jpg",
+            "media/photos/dm_4470.jpg",
+            "media/photos/dm_4471.jpg",
+            "media/photos/dm_9427.jpg",
+            "media/photos/dm_9430.jpg",
+            "media/photos/dm_9431.jpg",
+            "media/photos/dm_9433.jpg",
+            "media/photos/dm_9434.jpg",
+            "media/photos/dm_9445.jpg",
+            "media/photos/dm_9449.jpg"
+          ],
+          "video": "media/video/v22"
+        },
+        {
+          "color": "красный",
+          "hex": "#C8202B",
+          "photos": [
+            "media/photos/dm_4472.jpg",
+            "media/photos/dm_4473.jpg",
+            "media/photos/dm_4474.jpg",
+            "media/photos/dm_4475.jpg",
+            "media/photos/dm_4476.jpg",
+            "media/photos/dm_4477.jpg",
+            "media/photos/dm_4478.jpg",
+            "media/photos/dm_4479.jpg",
+            "media/photos/dm_9485.jpg",
+            "media/photos/dm_9488.jpg",
+            "media/photos/dm_9490.jpg",
+            "media/photos/dm_9492.jpg",
+            "media/photos/dm_9505.jpg",
+            "media/photos/dm_9507.jpg",
+            "media/photos/dm_9514.jpg"
+          ],
+          "video": "media/video/v20"
+        },
+        {
+          "color": "синий",
+          "hex": "#24427E",
+          "photos": [
+            "media/photos/dm_4480.jpg",
+            "media/photos/dm_4481.jpg",
+            "media/photos/dm_4482.jpg",
+            "media/photos/dm_4483.jpg",
+            "media/photos/dm_4484.jpg",
+            "media/photos/dm_4485.jpg",
+            "media/photos/dm_4486.jpg",
+            "media/photos/dm_4487.jpg",
+            "media/photos/dm_9540.jpg",
+            "media/photos/dm_9542.jpg",
+            "media/photos/dm_9544.jpg",
+            "media/photos/dm_9546.jpg",
+            "media/photos/dm_9557.jpg",
+            "media/photos/dm_9559.jpg",
+            "media/photos/dm_9571.jpg"
+          ],
+          "video": "media/video/v19"
+        },
+        {
+          "color": "коричневый",
+          "hex": "#4E3328",
+          "photos": [
+            "media/photos/dm_4488.jpg",
+            "media/photos/dm_4489.jpg",
+            "media/photos/dm_4490.jpg",
+            "media/photos/dm_4491.jpg",
+            "media/photos/dm_4492.jpg",
+            "media/photos/dm_4493.jpg",
+            "media/photos/dm_4494.jpg",
+            "media/photos/dm_4495.jpg",
+            "media/photos/dm_9590.jpg",
+            "media/photos/dm_9593.jpg",
+            "media/photos/dm_9595.jpg",
+            "media/photos/dm_9597.jpg",
+            "media/photos/dm_9609.jpg",
+            "media/photos/dm_9621.jpg",
+            "media/photos/dm_9644.jpg"
+          ],
+          "video": "media/video/v21"
+        }
+      ]
+    },
+    {
+      "name": "Костюм: свитшот на полумолнии и широкие брюки",
+      "category": "suit",
+      "description": "Свитшот с отложным воротником и короткой молнией, широкие брюки на завязках. Возможна вышивка логотипа на груди и брюках.",
+      "price": "",
+      "colors": [
+        {
+          "color": "шоколад с вышивкой",
+          "hex": "#6E4C3C",
+          "photos": [
+            "media/photos/c3_2590.jpg",
+            "media/photos/c3_2589.jpg",
+            "media/photos/c3_2591.jpg",
+            "media/photos/c3_2592.jpg",
+            "media/photos/c3_2593.jpg",
+            "media/photos/c3_2594.jpg",
+            "media/photos/c3_2595.jpg",
+            "media/photos/c3_2596.jpg",
+            "media/photos/c3_2597.jpg",
+            "media/photos/c3_2598.jpg",
+            "media/photos/c3_2599.jpg",
+            "media/photos/c3_2600.jpg",
+            "media/photos/c3_2601.jpg",
+            "media/photos/c3_2602.jpg",
+            "media/photos/c3_2603.jpg",
+            "media/photos/c3_2604.jpg",
+            "media/photos/c3_0643.jpg",
+            "media/photos/c3_0649.jpg",
+            "media/photos/c3_0650.jpg",
+            "media/photos/c3_0652.jpg",
+            "media/photos/c3_0659.jpg"
+          ],
+          "video": "media/video/v29"
+        },
+        {
+          "color": "ванильный",
+          "hex": "#F1E6AE",
+          "photos": [
+            "media/photos/c3_2605.jpg",
+            "media/photos/c3_2606.jpg",
+            "media/photos/c3_2607.jpg",
+            "media/photos/c3_2608.jpg",
+            "media/photos/c3_2609.jpg",
+            "media/photos/c3_2610.jpg",
+            "media/photos/c3_2611.jpg",
+            "media/photos/c3_2612.jpg",
+            "media/photos/c3_2613.jpg",
+            "media/photos/c3_2614.jpg",
+            "media/photos/c3_2615.jpg",
+            "media/photos/c3_2616.jpg",
+            "media/photos/c3_2617.jpg",
+            "media/photos/c3_2618.jpg",
+            "media/photos/c3_2619.jpg",
+            "media/photos/c3_2620.jpg",
+            "media/photos/c3_0723.jpg",
+            "media/photos/c3_0728.jpg",
+            "media/photos/c3_0729.jpg",
+            "media/photos/c3_0732.jpg",
+            "media/photos/c3_0734.jpg"
+          ],
+          "video": "media/video/v28"
+        },
+        {
+          "color": "светло-серый меланж",
+          "hex": "#D8D9D6",
+          "photos": [
+            "media/photos/c3_2621.jpg",
+            "media/photos/c3_2622.jpg",
+            "media/photos/c3_2623.jpg",
+            "media/photos/c3_2624.jpg",
+            "media/photos/c3_2625.jpg",
+            "media/photos/c3_2626.jpg",
+            "media/photos/c3_2627.jpg",
+            "media/photos/c3_2628.jpg",
+            "media/photos/c3_2629.jpg",
+            "media/photos/c3_2630.jpg",
+            "media/photos/c3_2631.jpg",
+            "media/photos/c3_2632.jpg",
+            "media/photos/c3_2633.jpg",
+            "media/photos/c3_0812.jpg",
+            "media/photos/c3_0813.jpg",
+            "media/photos/c3_0826.jpg",
+            "media/photos/c3_0828.jpg",
+            "media/photos/c3_0830.jpg",
+            "media/photos/c3_0831.jpg",
+            "media/photos/c3_0864.jpg"
+          ],
+          "video": "media/video/v27"
+        }
+      ]
+    },
+    {
+      "name": "Мужской костюм с кантом: свитшот на полумолнии и брюки",
+      "category": "men",
+      "description": "Свитшот с воротником-стойкой и короткой молнией, прямые брюки на завязках. Контрастный кант по рукавам и брюкам.",
+      "price": "",
+      "colors": [
+        {
+          "color": "тёмно-синий",
+          "hex": "#1F2A4D",
+          "photos": [
+            "media/photos/aa_5720.jpg",
+            "media/photos/aa_5722.jpg",
+            "media/photos/aa_5725.jpg",
+            "media/photos/aa_5728.jpg",
+            "media/photos/aa_5730.jpg",
+            "media/photos/aa_5731.jpg",
+            "media/photos/aa_5733.jpg",
+            "media/photos/aa_5735.jpg",
+            "media/photos/aa_5739.jpg",
+            "media/photos/aa_5741.jpg",
+            "media/photos/aa_5743.jpg",
+            "media/photos/aa_5745.jpg",
+            "media/photos/aa_5717.jpg"
+          ],
+          "video": "media/video/v23"
+        },
+        {
+          "color": "коричневый",
+          "hex": "#4E3328",
+          "photos": [
+            "media/photos/aa_5784.jpg",
+            "media/photos/aa_5786.jpg",
+            "media/photos/aa_5788.jpg",
+            "media/photos/aa_5791.jpg",
+            "media/photos/aa_5792.jpg",
+            "media/photos/aa_5793.jpg",
+            "media/photos/aa_5795.jpg",
+            "media/photos/aa_5798.jpg",
+            "media/photos/aa_5799.jpg",
+            "media/photos/aa_5802.jpg",
+            "media/photos/aa_5804.jpg",
+            "media/photos/aa_5805.jpg",
+            "media/photos/aa_5806.jpg",
+            "media/photos/aa_5781.jpg"
+          ],
+          "video": "media/video/v26"
+        }
+      ]
+    },
+    {
+      "name": "Мужской костюм: бомбер на молнии и брюки",
+      "category": "men",
+      "description": "Бомбер с воротником-стойкой, длинной молнией и трикотажными манжетами, прямые брюки на завязках.",
+      "price": "",
+      "colors": [
+        {
+          "color": "тёмно-синий",
+          "hex": "#1F2A4D",
+          "photos": [
+            "media/photos/aa_5752.jpg",
+            "media/photos/aa_5754.jpg",
+            "media/photos/aa_5757.jpg",
+            "media/photos/aa_5759.jpg",
+            "media/photos/aa_5761.jpg",
+            "media/photos/aa_5762.jpg",
+            "media/photos/aa_5764.jpg",
+            "media/photos/aa_5767.jpg",
+            "media/photos/aa_5768.jpg",
+            "media/photos/aa_5771.jpg",
+            "media/photos/aa_5772.jpg",
+            "media/photos/aa_5775.jpg",
+            "media/photos/aa_5776.jpg",
+            "media/photos/aa_5748.jpg"
+          ],
+          "video": "media/video/v24"
+        },
+        {
+          "color": "коричневый",
+          "hex": "#4E3328",
+          "photos": [
+            "media/photos/aa_5816.jpg",
+            "media/photos/aa_5818.jpg",
+            "media/photos/aa_5822.jpg",
+            "media/photos/aa_5825.jpg",
+            "media/photos/aa_5827.jpg",
+            "media/photos/aa_5828.jpg",
+            "media/photos/aa_5831.jpg",
+            "media/photos/aa_5833.jpg",
+            "media/photos/aa_5835.jpg",
+            "media/photos/aa_5836.jpg",
+            "media/photos/aa_5837.jpg",
+            "media/photos/aa_5840.jpg",
+            "media/photos/aa_5842.jpg",
+            "media/photos/aa_5812.jpg"
+          ],
+          "video": "media/video/v25"
+        }
+      ]
+    },
+    {
+      "name": "Куртка из экокожи с поясом",
+      "category": "jacket",
+      "description": "Свободный крой, широкий отложной воротник, пояс на талии.",
+      "price": "",
+      "colors": [
+        {
+          "color": "оливковый",
+          "hex": "#55593A",
+          "photos": [
+            "media/photos/5409057318843915084.jpg",
+            "media/photos/5409057318843915082.jpg",
+            "media/photos/5409057318843915083.jpg",
+            "media/photos/5409057318843915085.jpg"
+          ],
+          "video": ""
+        },
+        {
+          "color": "бордо",
+          "hex": "#4E1F27",
+          "photos": [
+            "media/photos/5409057318843915078.jpg",
+            "media/photos/5409057318843915073.jpg",
+            "media/photos/5409057318843915074.jpg",
+            "media/photos/5409057318843915075.jpg",
+            "media/photos/5409057318843915076.jpg",
+            "media/photos/5409057318843915077.jpg",
+            "media/photos/5409057318843915079.jpg"
+          ],
+          "video": ""
+        }
+      ]
+    },
+    {
+      "name": "Куртка из экокожи на молнии",
+      "category": "jacket",
+      "description": "Объёмная куртка оверсайз с воротником-стойкой и молнией.",
+      "price": "",
+      "colors": [
+        {
+          "color": "оливковый",
+          "hex": "#55593A",
+          "photos": [
+            "media/photos/5409057318843915066.jpg",
+            "media/photos/5409057318843915064.jpg",
+            "media/photos/5409057318843915065.jpg",
+            "media/photos/5409057318843915067.jpg"
+          ],
+          "video": ""
+        },
+        {
+          "color": "бордо",
+          "hex": "#4E1F27",
+          "photos": [
+            "media/photos/5409057318843915072.jpg",
+            "media/photos/5409057318843915071.jpg"
+          ],
+          "video": ""
+        }
+      ]
+    },
+    {
+      "name": "Замшевая куртка с поясом",
+      "category": "jacket",
+      "description": "Укороченная куртка на молнии с воротником-стойкой и поясом.",
+      "price": "",
+      "colors": [
+        {
+          "color": "рыжий",
+          "hex": "#A2552C",
+          "photos": [
+            "media/photos/5409057318843915089.jpg",
+            "media/photos/5409057318843915091.jpg",
+            "media/photos/5409057318843915090.jpg"
+          ],
+          "video": ""
+        },
+        {
+          "color": "хаки",
+          "hex": "#4B4733",
+          "photos": [
+            "media/photos/5409057318843915087.jpg",
+            "media/photos/5409057318843915088.jpg",
+            "media/photos/5409057318843915086.jpg"
+          ],
+          "video": ""
+        }
+      ]
+    },
+    {
+      "name": "Приталенная куртка на молнии",
+      "category": "jacket",
+      "description": "Объёмные рукава, баска по низу, длинная молния.",
+      "price": "",
+      "colors": [
+        {
+          "color": "синий",
+          "hex": "#24427E",
+          "photos": [
+            "media/photos/5409057318843915111.jpg",
+            "media/photos/5409057318843915109.jpg",
+            "media/photos/5409057318843915110.jpg"
+          ],
+          "video": ""
+        },
+        {
+          "color": "чёрный",
+          "hex": "#1C1C1F",
+          "photos": [
+            "media/photos/5409057318843915118.jpg",
+            "media/photos/5409057318843915117.jpg",
+            "media/photos/5409057318843915116.jpg"
+          ],
+          "video": ""
+        },
+        {
+          "color": "шоколад",
+          "hex": "#4A3128",
+          "photos": [
+            "media/photos/5409057318843915121.jpg",
+            "media/photos/5409057318843915119.jpg",
+            "media/photos/5409057318843915120.jpg",
+            "media/photos/5409057318843915122.jpg"
+          ],
+          "video": ""
+        }
+      ]
+    },
+    {
+      "name": "Спортивный костюм: олимпийка и юбка",
+      "category": "suit",
+      "description": "Олимпийка оверсайз и юбка макси с контрастным кантом.",
+      "price": "",
+      "colors": [
+        {
+          "color": "тёмно-синий",
+          "hex": "#1F2A4D",
+          "photos": [
+            "media/photos/5409057318843915097.jpg",
+            "media/photos/5409057318843915094.jpg",
+            "media/photos/5409057318843915095.jpg",
+            "media/photos/5409057318843915096.jpg"
+          ],
+          "video": ""
+        },
+        {
+          "color": "красный",
+          "hex": "#C8202B",
+          "photos": [
+            "media/photos/5409057318843915098.jpg",
+            "media/photos/5409057318843915099.jpg"
+          ],
+          "video": ""
+        }
+      ]
+    },
+    {
+      "name": "Костюм: жакет с поясом и брюки",
+      "category": "suit",
+      "description": "Удлинённый жакет на поясе и широкие брюки.",
+      "price": "",
+      "colors": [
+        {
+          "color": "бордо",
+          "hex": "#4E1F27",
+          "photos": [
+            "media/photos/5409057318843915101.jpg",
+            "media/photos/5409057318843915100.jpg",
+            "media/photos/5409057318843915102.jpg"
+          ],
+          "video": ""
+        }
+      ]
+    },
+    {
+      "name": "Жакет оверсайз в тонкую полоску",
+      "category": "suit",
+      "description": "Прямой силуэт, удлинённая спинка, накладные карманы.",
+      "price": "",
+      "colors": [
+        {
+          "color": "серо-коричневый",
+          "hex": "#6B5F55",
+          "photos": [
+            "media/photos/5409057318843915136.jpg",
+            "media/photos/5409057318843915135.jpg",
+            "media/photos/5409057318843915137.jpg",
+            "media/photos/5409057318843915138.jpg",
+            "media/photos/5409057318843915139.jpg",
+            "media/photos/5409057318843915140.jpg"
+          ],
+          "video": ""
+        }
+      ]
+    }
+  ]
+}

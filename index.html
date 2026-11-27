@@ -238,6 +238,7 @@ section { padding-block: 96px; }
 .card .row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
 .card h3 { font-size: .78rem; letter-spacing: .06em; }
 .card .desc { font-size: .8rem; color: var(--muted); }
+.card .price { margin: 0; font-weight: 700; font-size: .95rem; color: var(--ink); }
 .swatches { display: flex; flex-wrap: wrap; gap: 5px; }
 .sw { width: 12px; height: 12px; border-radius: 50%; border: 1px solid rgba(0,0,0,.2); padding: 0; }
 .looks { font: 400 .66rem/1 var(--f-mono); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); white-space: nowrap; }
@@ -703,30 +704,18 @@ const HEX = {
 };
 const CATS = { jacket: "Куртки", suit: "Жакеты и костюмы", men: "Мужские костюмы" };
 
-const MODELS = [
-  { cat: "suit", name: "Костюм с кантом: олимпийка и широкие брюки", desc: "Олимпийка на молнии с воротником-стойкой и широкие брюки на завязках. Контрастный белый кант по рельефам.", looks: [
-    ["чёрный", dm(4464, 4465, 4466, 4467, 4468, 4469, 4470, 4471, 9427, 9430, 9431, 9433, 9434, 9445, 9449), "media/video/v22"],
-    ["красный", dm(4472, 4473, 4474, 4475, 4476, 4477, 4478, 4479, 9485, 9488, 9490, 9492, 9505, 9507, 9514), "media/video/v20"],
-    ["синий", dm(4480, 4481, 4482, 4483, 4484, 4485, 4486, 4487, 9540, 9542, 9544, 9546, 9557, 9559, 9571), "media/video/v19"],
-    ["коричневый", dm(4488, 4489, 4490, 4491, 4492, 4493, 4494, 4495, 9590, 9593, 9595, 9597, 9609, 9621, 9644), "media/video/v21"]] },
-  { cat: "suit", name: "Костюм: свитшот на полумолнии и широкие брюки", desc: "Свитшот с отложным воротником и короткой молнией, широкие брюки на завязках. Возможна вышивка логотипа на груди и брюках.", looks: [
-    ["шоколад с вышивкой", c3(2590, 2589, ...range(2591, 2604), 643, 649, 650, 652, 659), "media/video/v29"],
-    ["ванильный", c3(...range(2605, 2620), 723, 728, 729, 732, 734), "media/video/v28"],
-    ["светло-серый меланж", c3(...range(2621, 2633), 812, 813, 826, 828, 830, 831, 864), "media/video/v27"]] },
-  { cat: "men", name: "Мужской костюм с кантом: свитшот на полумолнии и брюки", desc: "Свитшот с воротником-стойкой и короткой молнией, прямые брюки на завязках. Контрастный кант по рукавам и брюкам.", looks: [
-    ["тёмно-синий", aa(5720, 5722, 5725, 5728, 5730, 5731, 5733, 5735, 5739, 5741, 5743, 5745, 5717), "media/video/v23"],
-    ["коричневый", aa(5784, 5786, 5788, 5791, 5792, 5793, 5795, 5798, 5799, 5802, 5804, 5805, 5806, 5781), "media/video/v26"]] },
-  { cat: "men", name: "Мужской костюм: бомбер на молнии и брюки", desc: "Бомбер с воротником-стойкой, длинной молнией и трикотажными манжетами, прямые брюки на завязках.", looks: [
-    ["тёмно-синий", aa(5752, 5754, 5757, 5759, 5761, 5762, 5764, 5767, 5768, 5771, 5772, 5775, 5776, 5748), "media/video/v24"],
-    ["коричневый", aa(5816, 5818, 5822, 5825, 5827, 5828, 5831, 5833, 5835, 5836, 5837, 5840, 5842, 5812), "media/video/v25"]] },
-  { cat: "jacket", name: "Куртка из экокожи с поясом", desc: "Свободный крой, широкий отложной воротник, пояс на талии.", looks: [["оливковый", ph(15084, 15082, 15083, 15085)], ["бордо", ph(15078, 15073, 15074, 15075, 15076, 15077, 15079)]] },
-  { cat: "jacket", name: "Куртка из экокожи на молнии", desc: "Объёмная куртка оверсайз с воротником-стойкой и молнией.", looks: [["оливковый", ph(15066, 15064, 15065, 15067)], ["бордо", ph(15072, 15071)]] },
-  { cat: "jacket", name: "Замшевая куртка с поясом", desc: "Укороченная куртка на молнии с воротником-стойкой и поясом.", looks: [["рыжий", ph(15089, 15091, 15090)], ["хаки", ph(15087, 15088, 15086)]] },
-  { cat: "jacket", name: "Приталенная куртка на молнии", desc: "Объёмные рукава, баска по низу, длинная молния.", looks: [["синий", ph(15111, 15109, 15110)], ["чёрный", ph(15118, 15117, 15116)], ["шоколад", ph(15121, 15119, 15120, 15122)]] },
-  { cat: "suit", name: "Спортивный костюм: олимпийка и юбка", desc: "Олимпийка оверсайз и юбка макси с контрастным кантом.", looks: [["тёмно-синий", ph(15097, 15094, 15095, 15096)], ["красный", ph(15098, 15099)]] },
-  { cat: "suit", name: "Костюм: жакет с поясом и брюки", desc: "Удлинённый жакет на поясе и широкие брюки.", looks: [["бордо", ph(15101, 15100, 15102)]] },
-  { cat: "suit", name: "Жакет оверсайз в тонкую полоску", desc: "Прямой силуэт, удлинённая спинка, накладные карманы.", looks: [["серо-коричневый", ph(15136, 15135, 15137, 15138, 15139, 15140)]] },
-].map((m, i) => ({ ...m, id: "M" + String(i + 1).padStart(2, "0"), no: String(i + 1).padStart(2, "0") }));
+/* Товары: data/models.json — редактируется в Pages CMS (файл .pages.yml). Цена — свободный текст. */
+let MODELS = [];
+const esc = (v) => String(v ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+function setModels(list) {
+  MODELS = list.map((m) => ({
+    cat: CATS[m.category] ? m.category : "suit", name: esc(m.name), desc: esc(m.description), price: esc((m.price || "").trim()),
+    looks: (m.colors || []).filter((c) => c.photos && c.photos.length).map((c) => {
+      if (c.hex) HEX[c.color] = c.hex;
+      return [esc(c.color), c.photos.map((x) => String(x).replace(/^\//, "")), c.video ? String(c.video).replace(/^\//, "").replace(/\.mp4$/, "") : undefined];
+    }),
+  })).filter((m) => m.name && m.looks.length).map((m, i) => ({ ...m, id: "M" + String(i + 1).padStart(2, "0"), no: String(i + 1).padStart(2, "0") }));
+}
 
 const LOOKBOOK = ph(15080, 15070, 15069, 15081, 15086, 15071);
 const VIDEOS = Array.from({ length: 29 }, (_, i) => "media/video/v" + String(i + 1).padStart(2, "0"));
@@ -763,6 +752,7 @@ function renderGrid() {
         <span class="label">${CATS[m.cat]}</span>
         <h3>${m.name}</h3>
         <p class="desc">${m.desc}</p>
+        ${m.price ? `<p class="price">${m.price}</p>` : ""}
         <div class="row"><span class="note" style="margin:0">${m.looks.length > 1 ? "Цвет: " + m.looks[cur][0] : "На фото: " + m.looks[0][0]}</span>${m.looks.some(l => l[2]) ? '<span class="looks">есть видео</span>' : ""}</div>
       </div>
       <button class="btn btn-ghost add ${cart[m.id] ? "in" : ""}" type="button" data-add="${m.id}">${cart[m.id] ? "В заявке ✓" : "Добавить в заявку"}</button>
@@ -839,7 +829,7 @@ function openModal(id) {
       <dt>Партия</dt><dd>от 300 единиц на артикул</dd>
       <dt>Ткань и цвет</dt><dd>подбираем под ваш заказ</dd>
       <dt>Размеры</dt><dd>по вашей размерной сетке</dd>
-      <dt>Цена</dt><dd>по запросу, зависит от тиража и ткани</dd>
+      <dt>Цена</dt><dd>${m.price || "по запросу, зависит от тиража и ткани"}</dd>
     </dl>
     <button class="btn btn-primary" type="button" id="mAdd" style="justify-self:start">${cart[m.id] ? "Убрать из заявки" : "Добавить в заявку"}</button>`;
   $("#mBody").onclick = e => { const b = e.target.closest("[data-look]"); if (b) { look = +b.dataset.look; showLook(); } };
@@ -964,7 +954,11 @@ document.querySelectorAll(".fvid video").forEach(v =>
 try { if (!localStorage.getItem("bonicab-cookie-ok")) $("#cookie").hidden = false; } catch (e) { $("#cookie").hidden = false; }
 $("#cookieOk").addEventListener("click", () => { $("#cookie").hidden = true; try { localStorage.setItem("bonicab-cookie-ok", "1"); } catch (e) {} });
 
-renderChips(); renderGrid(); renderMedia(); renderCart();
+renderMedia(); renderCart();
+$("#grid").innerHTML = '<p class="note">Загружаем каталог…</p>';
+fetch("data/models.json", { cache: "no-cache" }).then((r) => r.json()).then((d) => setModels(d.models || []))
+  .catch(() => { $("#grid").innerHTML = '<p class="note">Каталог не загрузился. Обновите страницу.</p>'; })
+  .finally(() => { if (MODELS.length) { renderChips(); renderGrid(); } renderCart(); });
 </script>
 
 </body>
